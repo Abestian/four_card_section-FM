@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  height: 100vh;
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   background-color: hsl(0, 0%, 98%);
@@ -21,7 +22,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 6em 2em;
+  padding: 6em 2em;
 }
 
 .introduction {
@@ -32,6 +33,7 @@ body {
   font-size: clamp(2rem, 6vw, 3.6rem);
   color: hsl(234, 12%, 34%);
   font-weight: 200;
+  line-height: 4rem;
 }
 .introduction__subtitle {
   font-size: clamp(2rem, 6vw, 3.6rem);
@@ -45,18 +47,34 @@ body {
 }
 
 .tools {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
   gap: 2em;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  padding: clamp(2em, 8vw, 2.5em);
-  max-width: 370px;
+  padding: clamp(1.5em, 8vw, 2em);
+  max-width: 350px;
   border-radius: 8px;
   box-shadow: 4px 4px 15px rgba(46, 46, 46, 0.271);
+}
+.card--one {
+  border-top: 4px solid hsl(180, 62%, 55%);
+  grid-row: 1;
+}
+.card--two {
+  border-top: 4px solid hsl(0, 78%, 62%);
+  grid-row: 2;
+}
+.card--three {
+  border-top: 4px solid hsl(34, 97%, 64%);
+  grid-row: 3;
+}
+.card--four {
+  border-top: 4px solid hsl(212, 86%, 64%);
+  grid-row: 4;
 }
 .card__title {
   color: hsl(234, 12%, 34%);
@@ -64,22 +82,51 @@ body {
   font-weight: 600;
 }
 .card__description {
-  margin: 0.5em 0 3.5em;
+  margin: 0.5em 0 2em;
   color: hsl(229, 6%, 66%);
 }
 .card__icon {
   align-self: flex-end;
   width: 4em;
 }
-.card--one {
-  border-top: 4px solid hsl(180, 62%, 55%);
+
+@media (width > 768px) {
+  .feature-section {
+    padding: 4em;
+  }
+  .introduction__text {
+    padding: 1em 0 2.5em;
+  }
+  .tools {
+    grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  }
+  .card--one {
+    grid-area: 1/1;
+  }
+  .card--two {
+    grid-area: 1/2;
+  }
+  .card--three {
+    grid-area: 2/1;
+  }
+  .card--four {
+    grid-area: 2/2;
+  }
 }
-.card--two {
-  border-top: 4px solid hsl(0, 78%, 62%);
-}
-.card--three {
-  border-top: 4px solid hsl(34, 97%, 64%);
-}
-.card--four {
-  border-top: 4px solid hsl(212, 86%, 64%);
+@media (width > 1200px) {
+  .tools {
+    grid-template: repeat(4, 1fr)/repeat(3, 1fr);
+  }
+  .card--one {
+    grid-area: 2/1/4/2;
+  }
+  .card--two {
+    grid-area: 1/2/3/3;
+  }
+  .card--three {
+    grid-area: 3/2/5/3;
+  }
+  .card--four {
+    grid-area: 2/3/4/4;
+  }
 }/*# sourceMappingURL=main.css.map */
